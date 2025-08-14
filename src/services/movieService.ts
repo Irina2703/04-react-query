@@ -8,7 +8,7 @@ interface MovieSearchResponse {
     total_pages: number;
 }
 const link: string = "https://api.themoviedb.org/3/search/movie";
-const TMDB_KEY: string = import.meta.env.VITE_API_KEY;
+const TMDB_KEY: string = import.meta.env.VITE_TMDB_TOKEN;
 
 export default async function getMovies(searchText: string, page: number = 1): Promise<Movie[]> {
 
