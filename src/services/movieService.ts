@@ -9,7 +9,7 @@ interface MovieSearchResponse {
     total_pages: number;
 }
 
-const TMDB_KEY: string = import.meta.env.VITE_TMDB_TOKEN;
+const TMDB_KEY = import.meta.env.VITE_TMDB_TOKEN;
 const link = "https://api.themoviedb.org/3/search/movie";
 
 export async function getMovies({
