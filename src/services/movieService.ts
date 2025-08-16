@@ -8,7 +8,7 @@ export interface MovieSearchResponse {
     total_pages: number;
 }
 
-const TMDB_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const TMDB_BEARER_TOKEN = import.meta.env.VITE_TMDB_BEARER_TOKEN; // Bearer токен
 const link = "https://api.themoviedb.org/3/search/movie";
 
 export async function getMovies({
@@ -20,11 +20,13 @@ export async function getMovies({
 }): Promise<MovieSearchResponse> {
     const response = await axios.get<MovieSearchResponse>(link, {
         params: {
-            api_key: TMDB_KEY,
             query,
             include_adult: false,
             language: "en-US",
             page,
+        },
+        headers: {
+            Authorization: `Bearer ${TMDB_BEARER_TOKEN}`, // Важливо!
         },
     });
 
