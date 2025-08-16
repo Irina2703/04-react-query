@@ -20,7 +20,7 @@ export async function getMovies({
 }): Promise<MovieSearchResponse> {
     const response = await axios.get<MovieSearchResponse>(link, {
         params: {
-            api_key: TMDB_KEY, // ✅ тепер ключ використовується
+            api_key: TMDB_KEY,
             query,
             include_adult: false,
             language: "en-US",
